@@ -4,6 +4,7 @@ import 'package:homy_school/firebase_options.dart';
 import 'package:homy_school/splash_screen.dart';
 import 'package:homy_school/views/auth/auth_view_model.dart';
 import 'package:homy_school/views/auth/login_page.dart';
+import 'package:homy_school/views/model_view/class_activities_view_model.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -16,6 +17,9 @@ void main() async {
     providers: [
       ChangeNotifierProvider<AuthViewModel>(
         create: (context) => AuthViewModel(),
+      ),
+      ChangeNotifierProvider<ClassActivitiesViewModel>(
+        create: (context) => ClassActivitiesViewModel(),
       ),
     ],
     child: const HomySchool(),

@@ -4,12 +4,9 @@ import '../theme.dart';
 
 class TextFieldWidget extends StatelessWidget {
   TextFieldWidget(
-      {super.key,
-      required this.nameField,
-      required this.visible,
-      required this.c});
+      {super.key, this.nameField, required this.visible, required this.c});
 
-  final String nameField;
+  final String? nameField;
   final bool visible;
   TextEditingController c;
 

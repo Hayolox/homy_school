@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:homy_school/views/model_view/class_activities_view_model.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../theme.dart';
 import '../../../../widgets/button.dart';
@@ -34,24 +36,37 @@ class AddKegiatanPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 24),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // const TextFieldWidget(nameField: 'Nama Kegiatan', visible: false),
-              // const SizedBox(
-              //   height: 14,
-              // ),
-              // const TextFieldWidget(
-              //     nameField: 'Deskripsi Kegiatan', visible: false),
-              const SizedBox(
-                height: 30,
-              ),
-              Button(
-                  nameButton: 'TAMBAH DATA',
-                  widthButton: 220,
-                  buttonFunction: () {})
-            ],
-          ),
+          child: Consumer<ClassActivitiesViewModel>(
+              builder: (context, value, child) {
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                TextFieldWidget(
+                  nameField: 'Nama Kegiatan',
+                  visible: false,
+                  c: value.nameActivitiesC,
+                ),
+                const SizedBox(
+                  height: 14,
+                ),
+                TextFieldWidget(
+                  nameField: 'Deskripsi Kegiatan',
+                  visible: false,
+                  c: value.desctiprionActivitiesC,
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Button(
+                    nameButton: 'TAMBAH DATA',
+                    widthButton: 220,
+                    buttonFunction: () {
+                      value.addData(value.nameActivitiesC.text,
+                          value.desctiprionActivitiesC.text, context);
+                    })
+              ],
+            );
+          }),
         ),
       ),
     );
