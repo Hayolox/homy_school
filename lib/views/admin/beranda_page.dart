@@ -54,7 +54,7 @@ class BerandaPage extends StatelessWidget {
                     ),
                     children: [
                       TextSpan(
-                          text: 'Romario',
+                          text: 'Admin',
                           style: poppinsTextStyle.copyWith(
                             color: lavenderColor,
                             fontSize: 25,
