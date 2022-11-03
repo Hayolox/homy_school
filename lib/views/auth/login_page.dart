@@ -62,15 +62,6 @@ class LoginPage extends StatelessWidget {
                           nameButton: 'Masuk',
                           widthButton: 93,
                           buttonFunction: () {
-                            // Navigator.push(
-                            //   context,
-                            //   MaterialPageRoute(
-                            //     builder: (context) {
-                            //       return const StudentBerandaPage();
-                            //     },
-                            //   ),
-                            // );
-
                             if (value.emailC.text != '' &&
                                 value.passwordC.text != '') {
                               bool validateEmail =
@@ -120,33 +111,6 @@ class LoginPage extends StatelessWidget {
                               fit: BoxFit.cover),
                         ),
                       ),
-                      Center(
-                        child: Text(
-                          'Masuk dengan',
-                          style: poppinsTextStyle.copyWith(
-                              fontSize: 12, color: lavenderColor),
-                        ),
-                      ),
-                      Center(
-                        child: GestureDetector(
-                          onTap: () => Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const BerandaPage(),
-                            ),
-                          ),
-                          child: Container(
-                            width: 23,
-                            height: 23,
-                            margin: const EdgeInsets.only(top: 8, bottom: 18),
-                            decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage('assets/images/gmail.png'),
-                              ),
-                            ),
-                          ),
-                        ),
-                      )
                     ],
                   );
                 }),
