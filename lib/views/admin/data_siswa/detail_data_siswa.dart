@@ -134,7 +134,6 @@ class DetailDataSiswa extends StatelessWidget {
                                     'Tipe Registrasi Tidak Boeh Kosong');
                               } else {
                                 value.editData(
-                                    value.emailC.text,
                                     value.nameC.text,
                                     value.nisC.text,
                                     value.nisnC.text,

@@ -29,6 +29,11 @@ class DataStudentViewModel extends ChangeNotifier {
     return docRef.get();
   }
 
+  Stream<DocumentSnapshot<Map<String, dynamic>>> getDetailDataStream(
+      String paramId) {
+    return db.collection('data-students').doc(paramId).snapshots();
+  }
+
   addData(
       String paramEmail,
       String paramName,
@@ -71,7 +76,6 @@ class DataStudentViewModel extends ChangeNotifier {
   }
 
   editData(
-      String paramEmail,
       String paramName,
       String paramNis,
       String paramNisn,

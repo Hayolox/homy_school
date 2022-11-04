@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:homy_school/view_model.dart/data_students_view_model.dart';
 import 'package:homy_school/views/student/data_siswa/detail_data_siswa.dart';
 import 'package:homy_school/theme.dart';
-import '../../student/data_siswa/search_siswa_page.dart';
+import 'package:provider/provider.dart';
 
 class DataSiswaPage extends StatelessWidget {
   const DataSiswaPage({super.key});
@@ -29,85 +31,73 @@ class DataSiswaPage extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            TextField(
-              readOnly: true,
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => SearchSiswaPage(),
-                  ),
-                );
-              },
-              decoration: InputDecoration(
-                  suffixIcon: const Icon(
-                    Icons.search,
-                    color: Colors.white,
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                    borderSide: const BorderSide(color: Colors.white, width: 1),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                    borderSide: const BorderSide(color: Colors.white, width: 1),
-                  )),
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            Expanded(
-              child: ListView.builder(
-                itemCount: 10,
-                itemBuilder: (context, index) {
-                  return GestureDetector(
-                    onLongPress: () {},
-                    onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const DetailDataSiswa(),
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 24),
+          child:
+              Consumer<DataStudentViewModel>(builder: (context, value, child) {
+            return FutureBuilder(
+                future:
+                    value.getDetailData(FirebaseAuth.instance.currentUser!.uid),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.done) {
+                    return GestureDetector(
+                      onLongPress: () {},
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              DetailDataSiswa(uid: snapshot.data!.id),
+                        ),
                       ),
-                    ),
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 20, horizontal: 25),
-                      margin: const EdgeInsets.only(top: 15),
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.white),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Romario Lendo',
-                            overflow: TextOverflow.ellipsis,
-                            style: poppinsTextStyle.copyWith(
-                                fontSize: 18,
-                                color: lavenderColor,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            'NISN',
-                            style: poppinsTextStyle,
-                          )
-                        ],
+                      child: Container(
+                        height: 170,
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 20, horizontal: 25),
+                        margin: const EdgeInsets.only(top: 15),
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.white),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              (snapshot.data!.data()
+                                  as Map<String, dynamic>)['name'],
+                              overflow: TextOverflow.ellipsis,
+                              style: poppinsTextStyle.copyWith(
+                                  fontSize: 18,
+                                  color: lavenderColor,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              'NISN                      : ${(snapshot.data!.data() as Map<String, dynamic>)['nisn']}',
+                              style: poppinsTextStyle,
+                            ),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              'NIS                         : ${(snapshot.data!.data() as Map<String, dynamic>)['nis']}',
+                              style: poppinsTextStyle,
+                            ),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              'Tipe Registrasi    : ${(snapshot.data!.data() as Map<String, dynamic>)['registration_type']}',
+                              style: poppinsTextStyle,
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  );
-                },
-              ),
-            )
-          ],
-        ),
-      ),
+                    );
+                  }
+                  return Container();
+                });
+          })),
     );
   }
 }

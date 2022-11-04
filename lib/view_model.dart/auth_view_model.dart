@@ -107,8 +107,8 @@ class AuthViewModel extends ChangeNotifier {
     return widgetNow;
   }
 
-  void changePassword(String paramPassword, BuildContext context) async {
-    await FirebaseAuth.instance.currentUser!.updatePassword(paramPassword);
+  void changePassword(String paramPassword, BuildContext context) {
+    FirebaseAuth.instance.currentUser!.updatePassword(paramPassword);
     passwordC.clear();
     // ignore: use_build_context_synchronously
     FutureDialog().alert(context, 'Succes', 'Password Sudah Diganti');

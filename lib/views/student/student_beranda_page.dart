@@ -55,7 +55,7 @@ class StudentBerandaPage extends StatelessWidget {
                     ),
                     children: [
                       TextSpan(
-                          text: 'Romario',
+                          text: 'Student',
                           style: poppinsTextStyle.copyWith(
                             color: Colors.white,
                             fontSize: 25,
