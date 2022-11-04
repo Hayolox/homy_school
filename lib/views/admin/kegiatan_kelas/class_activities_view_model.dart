@@ -9,6 +9,7 @@ class ClassActivitiesViewModel extends ChangeNotifier {
   FirebaseFirestore db = FirebaseFirestore.instance;
 
   bool isLoading = true;
+  String nameClassActivities = '';
 
   Stream<QuerySnapshot> getData() {
     final Stream<QuerySnapshot> usersStream =
@@ -21,6 +22,11 @@ class ClassActivitiesViewModel extends ChangeNotifier {
     DocumentReference docRef = db.collection('class-activities').doc(paramId);
 
     return docRef.get();
+  }
+
+  changeNameClassActivities(String paramName) {
+    nameClassActivities = paramName;
+    notifyListeners();
   }
 
   void addData(
