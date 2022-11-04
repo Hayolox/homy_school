@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:homy_school/firebase_options.dart';
 import 'package:homy_school/splash_screen.dart';
+import 'package:homy_school/views/admin/data_siswa/data_students_view_model.dart';
 import 'package:homy_school/views/auth/auth_view_model.dart';
 import 'package:homy_school/views/auth/login_page.dart';
 import 'package:homy_school/views/admin/kegiatan_kelas/class_activities_view_model.dart';
@@ -20,6 +21,9 @@ void main() async {
       ),
       ChangeNotifierProvider<ClassActivitiesViewModel>(
         create: (context) => ClassActivitiesViewModel(),
+      ),
+      ChangeNotifierProvider<DataStudentViewModel>(
+        create: (context) => DataStudentViewModel(),
       ),
     ],
     child: const HomySchool(),
