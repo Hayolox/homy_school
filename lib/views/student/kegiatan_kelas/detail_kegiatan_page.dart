@@ -11,7 +11,6 @@ class DetailKegiatanPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(title);
     return Scaffold(
       backgroundColor: lavenderColor,
       appBar: AppBar(
