@@ -6,6 +6,7 @@ import 'package:homy_school/future/dialog.dart';
 import 'package:homy_school/splash_screen.dart';
 import 'package:homy_school/views/admin/beranda_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:homy_school/views/auth/change_password_page.dart';
 import 'package:homy_school/views/auth/login_page.dart';
 import 'package:homy_school/views/student/student_beranda_page.dart';
 
@@ -104,5 +105,12 @@ class AuthViewModel extends ChangeNotifier {
     );
 
     return widgetNow;
+  }
+
+  void changePassword(String paramPassword, BuildContext context) async {
+    await FirebaseAuth.instance.currentUser!.updatePassword(paramPassword);
+    passwordC.clear();
+    // ignore: use_build_context_synchronously
+    FutureDialog().alert(context, 'Succes', 'Password Sudah Diganti');
   }
 }
