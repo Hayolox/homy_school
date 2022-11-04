@@ -3,10 +3,15 @@ import 'package:flutter/material.dart';
 import '../../../../theme.dart';
 
 class DetailKegiatanPage extends StatelessWidget {
-  const DetailKegiatanPage({super.key});
+  DetailKegiatanPage(
+      {super.key, required this.title, required this.description});
+
+  String title;
+  String description;
 
   @override
   Widget build(BuildContext context) {
+    print(title);
     return Scaffold(
       backgroundColor: lavenderColor,
       appBar: AppBar(
@@ -34,7 +39,7 @@ class DetailKegiatanPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Title Kegiatan',
+                title,
                 style: titleTextStyle.copyWith(color: Colors.white),
               ),
               const SizedBox(
@@ -44,7 +49,7 @@ class DetailKegiatanPage extends StatelessWidget {
                 color: Colors.white,
               ),
               Text(
-                'Deskripsi Kegiatan',
+                description,
                 style: poppinsTextStyle.copyWith(
                     fontSize: 16, color: Colors.white),
               ),
