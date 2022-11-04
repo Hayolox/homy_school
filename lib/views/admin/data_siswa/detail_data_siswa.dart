@@ -1,7 +1,7 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:homy_school/future/dialog.dart';
-import 'package:homy_school/views/admin/data_siswa/data_students_view_model.dart';
+import 'package:homy_school/view_model.dart/data_students_view_model.dart';
 import 'package:homy_school/widgets/button.dart';
 import 'package:homy_school/widgets/text_field_widget.dart';
 import 'package:provider/provider.dart';

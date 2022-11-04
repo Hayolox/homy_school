@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:homy_school/future/dialog.dart';
 import 'package:homy_school/views/admin/beranda_page.dart';
-import 'package:homy_school/views/auth/auth_view_model.dart';
+import 'package:homy_school/view_model.dart/auth_view_model.dart';
 import 'package:homy_school/theme.dart';
 import 'package:homy_school/views/auth/forgot_password_page.dart';
 import 'package:homy_school/widgets/button.dart';

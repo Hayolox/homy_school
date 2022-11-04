@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:homy_school/theme.dart';
 import 'package:homy_school/views/admin/kegiatan_kelas/detail_kegiatan_page.dart';
-import 'package:homy_school/views/admin/kegiatan_kelas/class_activities_view_model.dart';
+import 'package:homy_school/view_model.dart/class_activities_view_model.dart';
 import 'package:homy_school/widgets/button.dart';
 import 'package:provider/provider.dart';
 import 'add_kegiatan_page.dart';

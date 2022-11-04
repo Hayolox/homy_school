@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:homy_school/views/auth/auth_view_model.dart';
+import 'package:homy_school/view_model.dart/auth_view_model.dart';
 import 'package:provider/provider.dart';
 
 import '../../theme.dart';

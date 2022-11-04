@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:homy_school/views/admin/beranda_page.dart';
-import 'package:homy_school/views/auth/auth_view_model.dart';
+import 'package:homy_school/view_model.dart/auth_view_model.dart';
 import 'package:homy_school/views/auth/login_page.dart';
 import 'package:delayed_display/delayed_display.dart';
 import 'package:provider/provider.dart';
